@@ -48,12 +48,12 @@ def getEvents():
     now = datetime.datetime.utcnow().isoformat() + 'Z' # 'Z' indicates UTC time
 
     eventsResult = service.events().list(
-        calendarId='primary', timeMin=now, maxResults=5, singleEvents=True,
+        calendarId='primary', timeMin=now, maxResults=10, singleEvents=True,
         orderBy='startTime').execute()
     events = eventsResult.get('items', [])
     eventList = []
     for event in events:
         if event['start'].get('dateTime'):
-            eventTime = event['start'].get('dateTime').split('T')[1]
+            eventTime = event['start'].get('dateTime')[:-6]
             eventList.append([eventTime, event['summary']])
     return eventList
