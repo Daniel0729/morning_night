@@ -26,5 +26,10 @@ def setAlarm():
     else:
         alarmTime = latestEvent - timeToGetReady
     #set alarm to go off at alarmTime
+    t.start()
+
 t = Timer(secs, setAlarm)
-t.start()
+
+    
+if __name__ == "__main__":
+    t.start()
