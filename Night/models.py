@@ -1,7 +1,12 @@
 from __future__ import unicode_literals
-
 from django.db import models
-from sun import sunsettime
+
 # Create your models here.
-class night(models.Model):
-    sunrisetime = models.DateTimeField(sunsettime())
+
+
+class Light_State(models.Model):
+    light = models.CharField(max_length=10)
+
+
+class Curtain_State(models.Model):
+    curtain = models.CharField(max_length=10)

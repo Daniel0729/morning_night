@@ -5,10 +5,25 @@
 </head>
 <body>
     <h1>Good Night and Good Morning</h1>
-    <h2>Today's schedule</h2>
-    <p>today you wake up at </p>:{{ wakeup.time }}<br><br><!--need to model setting-->
-    <p>tomorrow you want to wak up at {{ wakeup.time }}</p><!--need to model setting-->
-    <link><a href="Morning/"><p>tomorrow Morning settings</p></a></link>
-    <link><a href="Night/"><p>tonight settings</p></a></link>
+    <p>today you wake up at </p>
+    <form action = '',method = "GET">
+    {{ wakeuptime }}
+	</form>
+	<form action = '',method = "GET">
+    <p>tomorrow you want to wak up at:</p>
+    {{ wakeuptime_plan }}
+    </form><br><br><!--need to model setting-->
+
+    <!--need to model setting-->
+    <br><br>
+    <form action = '',method = "POST">{% csrf_token %}
+        <input type="radio" name="mood" value="good" checked> good <br>
+        <input type="radio" name="mood" value="natural"> natural <br>
+        <input type="radio" name="mood" value="bad"> bad <br>
+        <input type="submit", name="submit",value="submit">
+    </form>
+
+    <link><a href="Morning/Morning/"><p>tomorrow Morning settings</p></a></link>
+    <link><a href="Night/Night/"><p>tonight settings</p></a></link>
 </body>
 </html>

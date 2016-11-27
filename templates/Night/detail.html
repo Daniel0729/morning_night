@@ -4,22 +4,16 @@
     <meta charset="UTF-8">
 </head>
 <body>
+<p>{{ r }}</p>
     <h1>Good Night</h1>
-    <h2>automatic</h2>
-    today sunset time is :<br><br><!--need to find a way to get sunsettime from python pagekage-->
-    <form action=" " method="post">
-        Before or After sunset:
-        <input type="number" name="time" ><br>
-        <input type="submit">
-    </form>
     <h2>Manual</h2>
         <h4>light</h4>
-            <form action="" method="post">
+            <form action="" method="post">{% csrf_token %}
             <input type="submit" name="on" value="on"/>
             <input type="submit" name="off" value="off"/>
         </form>
         <h4>curtain</h4>
-            <form action="" method="post">
+            <form action="" method="post">{% csrf_token %}
             <input type="submit" name="open" value="open"/>
             <input type="submit" name="close" value="close"/>
             </form>
