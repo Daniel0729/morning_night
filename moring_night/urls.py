@@ -21,5 +21,5 @@ urlpatterns = [
     url(r'^$',include('home.urls')),
     url(r'^Morning/',include('Morning.urls')),
     url(r'^Night/',include('Night.urls')),
-    url(r'^api-auth/',include('rest_frameworks.urls', namespace='rest_framework'))
+    #url(r'^api-auth/',include('rest_frameworks.urls', namespace='rest_framework'))
 ]
