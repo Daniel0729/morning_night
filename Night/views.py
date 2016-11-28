@@ -62,4 +62,4 @@ def detail(request):
     output = json.loads(result)
     curtainstate = output['curtain']
 
-    return render(request, 'Morning/detail.html', {'lightstate': lightstate, 'curtainstate': curtainstate})
+    return render(request, 'Night/detail.html', {'lightstate': lightstate, 'curtainstate': curtainstate})
