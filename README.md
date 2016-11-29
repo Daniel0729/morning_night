@@ -7,4 +7,4 @@ https://github.com/willprice/python-omxplayer-wrapper
 install:
 sudo pip install omxplayer-wrapper
 
-the first time running will fail, you can reboot your pi .not work very well...
+the first time running will fail,so you can do player.play twice in your code .not work very well
