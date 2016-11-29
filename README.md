@@ -6,3 +6,5 @@ https://github.com/willprice/python-omxplayer-wrapper
 
 install:
 sudo pip install omxplayer-wrapper
+
+the first time running will fail, you can reboot your pi .not work very well...
