@@ -7,7 +7,6 @@ from django.http import HttpResponseRedirect
 
 # Create your views here.
 def home(request):
-    print request.method
     instance =Wakeup.objects.last()
     context = {
         "wakeuptime":instance.wakeuptime,
@@ -25,4 +24,3 @@ def submitmood(request):
         "form":form
     }
     return render(request, template_name='home/submit.html', context=context1)
-

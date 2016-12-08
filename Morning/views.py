@@ -4,7 +4,6 @@ from django.http import HttpResponseRedirect
 from rest_framework import viewsets
 from Morning.models import Music_State,MLight_State
 from Morning.serializers import LightSerializer,MusicSerializer
-
 import requests
 import json
 # Create your views here.
