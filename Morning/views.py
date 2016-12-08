@@ -4,7 +4,7 @@ from django.http import HttpResponseRedirect
 from rest_framework import viewsets
 from Morning.models import Music_State,MLight_State
 from Morning.serializers import LightSerializer,MusicSerializer
-#from django.serializers import RequestContext
+
 import requests
 import json
 # Create your views here.
@@ -64,29 +64,4 @@ def detail(request):
     musicstate = output['music']
 
     return render(request, 'Morning/detail.html', {'lightstate': lightstate, 'musicstate': musicstate})
-# def detail(request):
-#     return render(request,'Morning/detail.html')
-#
-# def get_light(request):
-#     form = LightState_Form(request.POST or None)
-#     if form.is_valid():
-#         instance = form.save(commit=False)
-#         instance.save()
-#
-#     context = {
-#         "form": form,
-#
-#     }
-#     return render(request,template_name="Morning/detail.html", context=context)
-#
-# def get_music(request):
-#     form = Music_State(request.POST or None)
-#     if form.is_valid():
-#         instance = form.save(commit=False)
-#         instance.save()
-#
-#     context = {
-#         "form": form,
-#
-#     }
-#     return render(request,template_name="Morning/detail.html", context=context)
+

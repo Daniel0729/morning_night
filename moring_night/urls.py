@@ -18,7 +18,7 @@ from django.contrib import admin
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
-    url(r'^$',include('home.urls')),
+    url(r'^',include('home.urls')),
     url(r'^Morning/',include('Morning.urls')),
     url(r'^Night/',include('Night.urls')),
     #url(r'^api-auth/',include('rest_frameworks.urls', namespace='rest_framework'))
