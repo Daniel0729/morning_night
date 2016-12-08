@@ -10,7 +10,7 @@ The website also records statistics on how long it took you to wake up and how y
 1. Change the super user in Morning/views.py and in Night/viewspy in the detail function. Change author to your account name and password.
 2. Get an Oauth2 token for your google calendar, download the json file and replace the secret.json file with yours. 
 
-## Dependancies
+## Dependencies
 there is a way to use omxplayer wrapper to play the music (local file or url)
 https://github.com/willprice/python-omxplayer-wrapper
 
@@ -37,4 +37,5 @@ sudo pip install -U requests
 
 ## Authors
 Songian 
-and Matthew
+
+Matthew
