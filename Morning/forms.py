@@ -1,15 +1,9 @@
 # from django import forms
 # from django.forms import ModelForm
-# from Morning.models import Light_State,Music_State
+# from Morning.models import Wakeup
 #
-# class LightState_Form(forms.ModelForm):
+# class WakeupForm(forms.ModelForm):
 #     class Meta:
-#         model = Light_State
-#         fields = ['name']
+#         model = Wakeup
+#         fields =["wakeupmood",]
 #
-# class MusicState_Form(forms.ModelForm):
-#     class Meta:
-#         model = Music_State
-#         fields = ['name']
-
-

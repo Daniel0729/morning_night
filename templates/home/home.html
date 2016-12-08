@@ -1,28 +1,26 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns="http://www.w3.org/1999/html">
 <head>
     <meta charset="UTF-8">
 </head>
 <body>
     <h1>Good Night and Good Morning</h1>
     <p>today you wake up at </p>
-    <form action = '',method = "GET">
+    <form action = "",method = "GET">
     {{ wakeuptime }}
 	</form>
-	<form action = '',method = "GET">
     <p>tomorrow you want to wak up at:</p>
+	<form action = "",method = "GET">
     {{ wakeuptime_plan }}
     </form><br><br><!--need to model setting-->
 
     <!--need to model setting-->
     <br><br>
-    <form action = '',method = "POST">{% csrf_token %}
-        <input type="radio" name="mood" value="good" checked> good <br>
-        <input type="radio" name="mood" value="natural"> natural <br>
-        <input type="radio" name="mood" value="bad"> bad <br>
-        <input type="submit", name="submit",value="submit">
+    <p>today you wakeup mood:</p>
+    <form action="",method="GET">
+        {{ wakeup_mood }}
     </form>
-
+    <link><a href="submit/"><p>submit your wakeup moode</p></a></link>
     <link><a href="Morning/Morning/"><p>tomorrow Morning settings</p></a></link>
     <link><a href="Night/Night/"><p>tonight settings</p></a></link>
 </body>

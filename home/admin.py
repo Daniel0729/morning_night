@@ -4,6 +4,7 @@ from home.models import Wakeup
 
 
 class WakupModelAdmin(admin.ModelAdmin):
+    list_display = ["wakeupmood","wakeuptime","wakeuptime_plan"]
     class Meta:
         model = Wakeup
 
