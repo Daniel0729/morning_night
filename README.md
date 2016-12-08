@@ -21,8 +21,11 @@ the first time running will fail,so you can do player.play twice in your code .n
 
 install:
 sudo pip install -U django
+
 sudo pip install -U djangorestframework
+
 sudo pip install -U markdown
+
 sudo pip install -U requests
 
 ## Future Work
