@@ -7,7 +7,6 @@ from django.http import HttpResponseRedirect
 
 # Create your views here.
 def home(request):
-    print request.method
     instance =Wakeup.objects.last()
     context = {
         "wakeuptime":instance.wakeuptime,
@@ -26,3 +25,9 @@ def submitmood(request):
     }
     return render(request, template_name='home/submit.html', context=context1)
 
+def pullstatistics(request):
+    queryset = Wakeup.objects.all()
+    context = {
+        "object_list": queryset,
+    }
+    return render(request,template_name='home/Stats.html',context=context)
