@@ -6,6 +6,15 @@
 <body>
   <h1> Your Wakeup statistics </h1>
   <form action="" method = "GET">{%csrf_token %}
+      {% for obj in object_list %}
+        {{ obj.wakeupmood }}<br>
+        {{ obj.wakeuptime }}<br>
+        {{ obj.wakeuptime_plan }}<br>
+      {% endfor %}
+  </form>
+  <link><a href="/"><p>Go back</p></a></link>
+</body>
+</html>
       {{ form.as_p }}
   </form>
   <link><a href="home/"><p>Go back</p></a></link>
