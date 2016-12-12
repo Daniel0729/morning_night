@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/html">
+<head>
+    <meta charset="UTF-8">
+</head>
+<body>
+  <h1> Your Wakeup statistics </h1>
+  <form action="" method = "GET">{%csrf_token %}
+      {% for obj in object_list %}
+        {{ obj.wakeupmood }}<br>
+        {{ obj.wakeuptime }}<br>
+        {{ obj.wakeuptime_plan }}<br>
+      {% endfor %}
+  </form>
+  <link><a href="/"><p>Go back</p></a></link>
+</body>
+</html>

@@ -1,5 +1,10 @@
 from datetime import datetime, time, timedelta
 from threading import Timer
+import sqlite3
+
+# Initialize SQLite
+con = sqlite3.connect('db.sqlite3')
+cur = con.cursor()
 
 x=datetime.today()
 y=x.replace(day=x.day+1, hour=1, minute=0, second=0, microsecond=0)
@@ -7,6 +12,9 @@ delta_t=y-x
 
 secs=delta_t.seconds+1
 
+def setCurrentState(val):
+    query = 'UPDATE home_wakeup set wakeuptime_plan = "'+val+'"'
+    cur.execute(query)
 def setAlarm():
     eventList = getEvents()
     timeToGetReady = timedelta(hours=1)
@@ -26,6 +34,7 @@ def setAlarm():
     else:
         alarmTime = latestEvent - timeToGetReady
     #set alarm to go off at alarmTime
+    setCurrentState(alarmTime)
     t.start()
 
 t = Timer(secs, setAlarm)
