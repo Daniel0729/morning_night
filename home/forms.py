@@ -8,3 +8,7 @@ class WakeupForm(forms.ModelForm):
          fields =["wakeupmood"]
 
 
+class Statspuller(forms.ModelForm):
+    class Meta:
+        model = Wakeup
+        fields = ["wakeuptime","wakeuptime_plan","wakeupmood"]
