@@ -28,6 +28,7 @@ sudo pip install -U markdown
 
 sudo pip install -U requests
 
+find out how to use google calaner api on professeor's side
 ## Future Work
 1. Creating Master server for everyone to connect to so each user doesn't have to set up their own.
 2. Suggestions on how to wake up better based on the statistics we gather.
