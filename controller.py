@@ -42,24 +42,24 @@ player = OMXPlayer(file_path_or_url)
 
 # Get current lightstate from DB
 def getCurrentMlight():
-    cur.execute('SELECT * FROM MLight_State')
+    cur.execute('SELECT * FROM Morning_mlight_State')
     data = cur.fetchone()  # (1, u'on')
     return data[1]
 
 # Get current musicstate from DB
 def getCurrentMusic():
-    cur.execute('SELECT * FROM Music_State')
+    cur.execute('SELECT * FROM Morning_music_State')
     data = cur.fetchone()  # (1, u'play')
     return data[1]
 
 # Store current lightstate in DB
 def setCurrentMlight(val):
-    query = 'UPDATE Mlight_State set light = "'+val+'"'
+    query = 'UPDATE Morning_mlight_State set light = "'+val+'"'
     cur.execute(query)
 
 # Store current music state in DB
 def setCurrentMusic(val):
-    query = 'UPDATE Music_State set music = "'+val+'"'
+    query = 'UPDATE Morning_music_State set music = "'+val+'"'
     cur.execute(query)
 
 def switchOnLight(PIN):
@@ -86,7 +86,7 @@ def runManualMode():
         player.play()
     elif currentmusicState == 'stop':
         print 'music - stop'
-        player.quit()
+        player.pause()
 	
 		
 # am not sure weather we want to store the data in the DB
