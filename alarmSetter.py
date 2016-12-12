@@ -1,5 +1,6 @@
 from datetime import datetime, time, timedelta
 from threading import Timer
+import googleCalendar
 import sqlite3
 import googleCalendar
 
@@ -24,7 +25,8 @@ def setAlarm():
     latestEvent.replace(hour=11,minute=0,second=0)
     if eventList:
         for event in eventList:
-            timeOfEvent = datetime.strptime(event[0],"%Y-%m-%dT%H:%M:%S")
+            timeOfEvent = datetime.datetime.strptime(event[0],"%Y-%m-%dT%H:%M:%S.%f") #this line doesn't quite parse right yet
+
             if timeOfEvent < datetime.now():
                 continue
             if timeOfEvent > latestEvent:
@@ -34,11 +36,14 @@ def setAlarm():
     else:
         alarmTime = latestEvent - timeToGetReady
     setCurrentState(alarmTime)
+    print alarmTime
     #t.stop()
     #t.start()
 
 #t = Timer(secs, setAlarm)
 #t.start()
 
+
+    
 if __name__ == "__main__":
     setAlarm()
