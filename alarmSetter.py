@@ -1,5 +1,6 @@
 from datetime import datetime, time, timedelta
 from threading import Timer
+import googleCalendar
 import sqlite3
 
 # Initialize SQLite
@@ -13,17 +14,17 @@ delta_t=y-x
 secs=delta_t.seconds+1
 
 def setCurrentState(val):
-    query = 'UPDATE home_wakeup set wakeuptime_plan = "'+val+'"'
+    query = 'UPDATE home_wakeup set wakeuptime_plan = "val"'
     cur.execute(query)
 def setAlarm():
-    eventList = getEvents()
+    eventList = googleCalendar.getEvents()
     timeToGetReady = timedelta(hours=1)
     alarmTime = 0
     latestEvent = datetime.today()
     latestEvent.replace(hour=11,minute=0,second=0)
     if eventList:
         for event in eventList:
-            timeOfEvent = datetime.datetime.strptime(event[0],"%Y-%M-%dT%H:%M:%S") #this line doesn't quite parse right yet
+            timeOfEvent = datetime.datetime.strptime(event[0],"%Y-%m-%dT%H:%M:%S.%f") #this line doesn't quite parse right yet
 
             if timeOfEvent < datetime.now():
                 continue
@@ -35,10 +36,11 @@ def setAlarm():
         alarmTime = latestEvent - timeToGetReady
     #set alarm to go off at alarmTime
     setCurrentState(alarmTime)
-    t.start()
+    print alarmTime
+   # t.start()
 
-t = Timer(secs, setAlarm)
+#t = Timer(secs, setAlarm)
 
     
 if __name__ == "__main__":
-    t.start()
+    setAlarm()

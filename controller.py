@@ -42,7 +42,7 @@ player = OMXPlayer(file_path_or_url)
 
 # Get current lightstate from DB
 def getCurrentMlight():
-    cur.execute('SELECT * FROM Morning_mlight_State')
+    cur.execute('SELECT * FROM Night_light_state')
     data = cur.fetchone()  # (1, u'on')
     return data[1]
 
@@ -54,7 +54,7 @@ def getCurrentMusic():
 
 # Store current lightstate in DB
 def setCurrentMlight(val):
-    query = 'UPDATE Morning_mlight_State set light = "'+val+'"'
+    query = 'UPDATE Night_light_State set light = "'+val+'"'
     cur.execute(query)
 
 # Store current music state in DB
@@ -75,14 +75,13 @@ def runManualMode():
     currentlightState = getCurrentMlight()
     currentmusicState = getCurrentMusic()
     if currentlightState == 'on':
-        print 'Manual - On'
+        print 'Light - On'
         switchOnLight(LIGHT_PIN)
     elif currentlightState == 'off':
-        print 'Manual - Off'
+        print 'Light - Off'
         switchOffLight(LIGHT_PIN)
     if currentmusicState == 'play':
         print 'music - play'
-        player.play()
         player.play()
     elif currentmusicState == 'stop':
         print 'music - stop'
@@ -113,4 +112,5 @@ while True:
         time.sleep(5)
     except KeyboardInterrupt:
         GPIO.cleanup()
+        player.quit()
         exit()
