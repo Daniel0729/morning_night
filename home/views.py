@@ -31,3 +31,9 @@ def pullstatistics(request):
     }
     return render(request,template_name='home/Stats.html',context=context)
 
+def pullstatistics(request):
+    queryset = Wakeup.objects.all()
+    context = {
+        "object_list": queryset,
+    }
+    return render(request,template_name='home/Stats.html',context=context)
